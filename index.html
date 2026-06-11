@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swethanjali Brahma | Data Scientist & Gen AI Engineer</title>
+    <meta name="description"
+        content="Portfolio of Swethanjali Brahma. Aspiring Data Scientist & Generative AI Intern specializing in Python, Machine Learning, NLP, RAG workflows, and Agentic AI systems.">
+
+    <!-- SEO and Social Meta Tags -->
+    <meta property="og:title" content="Swethanjali Brahma | Data Scientist & Gen AI Engineer">
+    <meta property="og:description"
+        content="Portfolio of Swethanjali Brahma. Generative AI Intern at Naresh IT, Data Science Trainee, and B.Tech CSE Graduate.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css?v=4">
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <!-- Custom Glowing Mouse Cursor -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-glow" id="cursor-glow"></div>
+
+    <!-- Start Screen Loader Overlay -->
+    <div class="loader-overlay" id="loader">
+        <div class="liquid-bg"></div>
+        <div class="loader-content">
+            <!-- Intro Video Player in Loader -->
+            <div class="loader-video-container">
+                <video id="loader-video" src="assets/videos/portfolio.mp4" autoplay loop muted playsinline
+                    class="loader-video"></video>
+                <button class="sound-toggle-btn" id="sound-toggle-btn" type="button" aria-label="Toggle Sound">
+                    <i data-lucide="volume-x"></i>
+                    <span>Tap for Sound</span>
+                </button>
+            </div>
+            <div class="monogram-container">
+                <span class="monogram-text">SWETHANJALI BRAHMA</span>
+            </div>
+            <p class="loader-subtitle">DATA SCIENCE &amp; GENERATIVE AI PORTFOLIO</p>
+            <div class="loading-bar-container">
+                <div class="loading-bar" id="loading-bar"></div>
+            </div>
+            <button class="start-btn" id="start-btn" style="opacity: 0; pointer-events: none;">START EXPERIENCE</button>
+        </div>
+    </div>
+
+    <!-- Floating Frosted Glass Header/Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-text">SWETHA</span>
+                <span class="logo-bracket">/&gt;</span>
+            </a>
+
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-right">
+                <div class="time-widget">
+                    <span class="time-label">IST (India Time)</span>
+                    <span class="time-value" id="ist-time">--:--:-- --</span>
+                </div>
+                <a href="mailto:swethabrahma@gmail.com" class="email-btn">Email Me</a>
+                <button class="hamburger" id="hamburger-btn" aria-label="Toggle Navigation Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero-section" id="home">
+            <canvas id="neural-canvas"></canvas>
+
+            <div class="section-container hero-grid">
+
+                <!-- Left Column: Bio / Text -->
+                <div class="hero-content">
+                    <div class="availability-badge">
+                        <span class="badge-dot"></span>
+                        <span class="badge-text">Available for Full-time &amp; Internships</span>
+                    </div>
+
+                    <h2 class="hero-greeting">Hi, I'm</h2>
+                    <h1 class="hero-name">Swethanjali<br><span class="gradient-text">Brahma</span></h1>
+
+                    <div class="typewriter-container">
+                        <span class="typewriter-label">Specialist in</span>
+                        <span class="typewriter-text" id="typewriter-text">Generative AI</span>
+                        <span class="cursor-blink">|</span>
+                    </div>
+
+                    <p class="hero-description">
+                        Building advanced, data-driven systems leveraging Machine Learning, RAG workflows, and Agentic
+                        AI reasoning pipelines. CSE B.Tech graduate ready to tackle complex challenges.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#projects" class="primary-btn">
+                            <span>View Projects</span>
+                            <i data-lucide="arrow-up-right"></i>
+                        </a>
+                        <a href="#contact" class="secondary-btn">Contact Me</a>
+                    </div>
+
+                    <!-- Stats Widgets Row -->
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <span class="stat-num">8.29</span>
+                            <span class="stat-lbl">B.Tech Cumulative GPA</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-num">GenAI</span>
+                            <span class="stat-lbl">LangChain &amp; RAG Expert</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-num">Python</span>
+                            <span class="stat-lbl">Main Development Stack</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Avatar Photo & Widgets -->
+                <div class="hero-photo-area">
+                    <div class="photo-wrapper">
+                        <div class="photo-glow"></div>
+                        <div class="photo-frame">
+                            <img src="assets/avatar.jpg" alt="Swethanjali Brahma Coding" class="hero-img">
+                        </div>
+
+                        <!-- Floating Interactive Tech Badges -->
+                        <div class="floating-widget widget-1">
+                            <div class="widget-icon-box ml-icon">
+                                <i data-lucide="cpu"></i>
+                            </div>
+                            <div class="widget-details">
+                                <span class="widget-title">Machine Learning</span>
+                                <span class="widget-subtitle">Classification &amp; Regression</span>
+                            </div>
+                        </div>
+
+                        <div class="floating-widget widget-2">
+                            <div class="widget-icon-box ai-icon">
+                                <i data-lucide="bot"></i>
+                            </div>
+                            <div class="widget-details">
+                                <span class="widget-title">Generative AI</span>
+                                <span class="widget-subtitle">Agentic &amp; RAG Frameworks</span>
+                            </div>
+                        </div>
+
+                        <div class="floating-widget widget-3">
+                            <div class="widget-icon-box data-icon">
+                                <i data-lucide="bar-chart-2"></i>
+                            </div>
+                            <div class="widget-details">
+                                <span class="widget-title">Data Analytics</span>
+                                <span class="widget-subtitle">Pandas, NumPy &amp; EDA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <a href="#about" class="scroll-cue" aria-label="Scroll to About Me">
+                <span class="scroll-cue-label">Scroll Down</span>
+                <span class="scroll-cue-line"></span>
+            </a>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section" id="about">
+            <canvas id="about-canvas" class="section-bg-canvas"></canvas>
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">&lt;identity&gt;</span>
+                    <h2 class="section-title">Who I Am</h2>
+                    <p class="section-subtitle">Blending Computer Science fundamentals with cutting-edge AI techniques.
+                    </p>
+                </div>
+
+                <div class="about-grid">
+                    <!-- About Text Description -->
+                    <div class="about-description-box">
+                        <h3 class="about-greeting">Eager to solve real-world problems using data-driven insights.</h3>
+                        <p class="about-text">
+                            I am an aspiring Data Scientist and Generative AI developer with a solid academic background
+                            in Computer Science and Engineering. I recently completed my B.Tech from Sri Sivani College
+                            of Engineering with a CGPA of 8.29, where I developed a passion for extracting patterns from
+                            data and architecting cognitive systems.
+                        </p>
+                        <p class="about-text">
+                            Currently, I work as an intern at Naresh IT focusing on Generative AI and Agentic AI
+                            workflows. My practice involves using tools like LangChain, LlamaIndex, OpenAI, and local
+                            LLMs (Ollama) to build autonomous reasoning applications and optimized RAG architectures.
+                        </p>
+
+                        <div class="about-socials">
+                            <a href="https://www.linkedin.com/in/swethanjali-brahma-717878284" target="_blank"
+                                rel="noopener noreferrer" class="social-link" title="LinkedIn">
+                                <i data-lucide="linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://github.com/Swethanjali151" target="_blank" rel="noopener noreferrer"
+                                class="social-link" title="GitHub">
+                                <i data-lucide="github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="mailto:swethabrahma@gmail.com" class="social-link" title="Email">
+                                <i data-lucide="mail"></i>
+                                <span>Email</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- About Saree Image Frame -->
+                    <div class="about-photo-area">
+                        <div class="about-photo-wrapper">
+                            <div class="about-photo-glow"></div>
+                            <div class="about-photo-frame">
+                                <img src="assets/about.jpg" alt="Swethanjali Brahma Coding in Pink Saree"
+                                    class="about-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills-section" id="skills">
+            <canvas id="skills-canvas" class="section-bg-canvas"></canvas>
+
+            <!-- Infinite Marquee Text -->
+            <div class="marquee-wrapper">
+                <div class="marquee-track">
+                    <span class="marquee-item">DATA SCIENCE <span class="marquee-separator">·</span></span>
+                    <span class="marquee-item">GENERATIVE AI <span class="marquee-separator">·</span></span>
+                    <span class="marquee-item">MACHINE LEARNING <span class="marquee-separator">·</span></span>
+                    <span class="marquee-item">AGENTIC AI <span class="marquee-separator">·</span></span>
+                    <span class="marquee-item">PYTHON DEVELOPMENT <span class="marquee-separator">·</span></span>
+                    <span class="marquee-item">RAG PIPELINES <span class="marquee-separator">·</span></span>
+                    <span class="marquee-item">DATA ANALYSIS <span class="marquee-separator">·</span></span>
+
+                    <span class="marquee-item">DATA SCIENCE <span class="marquee-separator">·</span></span>
+                    <span class="marquee-item">GENERATIVE AI <span class="marquee-separator">·</span></span>
+                    <span class="marquee-item">MACHINE LEARNING <span class="marquee-separator">·</span></span>
+                    <span class="marquee-item">AGENTIC AI <span class="marquee-separator">·</span></span>
+                    <span class="marquee-item">PYTHON DEVELOPMENT <span class="marquee-separator">·</span></span>
+                    <span class="marquee-item">RAG PIPELINES <span class="marquee-separator">·</span></span>
+                    <span class="marquee-item">DATA ANALYSIS <span class="marquee-separator">·</span></span>
+                </div>
+            </div>
+
+            <div class="section-container">
+                <div class="section-header centered">
+                    <span class="section-tag">&lt;capabilities&gt;</span>
+                    <h2 class="section-title">Technical Expertise</h2>
+                    <p class="section-subtitle">Deep dive into the technologies, frameworks, and methodologies I
+                        specialize in.</p>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- Left: Skills Image Frame -->
+                    <div class="skills-photo-area">
+                        <div class="skills-photo-wrapper">
+                            <div class="skills-photo-glow"></div>
+                            <div class="skills-photo-frame">
+                                <img src="assets/capabilities_4d.png"
+                                    alt="4D Dynamic Tesseract - Multi-dimensional AI Data Representation"
+                                    class="skills-img">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Tab System -->
+                    <div class="skills-tab-system">
+
+                        <!-- Tab Headers -->
+                        <div class="tab-headers" role="tablist">
+                            <button class="tab-btn active" role="tab" aria-selected="true" data-tab="ml-tab">
+                                <i data-lucide="activity"></i>
+                                <span>Machine Learning</span>
+                            </button>
+                            <button class="tab-btn" role="tab" aria-selected="false" data-tab="nlp-tab">
+                                <i data-lucide="message-square"></i>
+                                <span>Deep Learning &amp; NLP</span>
+                            </button>
+                            <button class="tab-btn" role="tab" aria-selected="false" data-tab="genai-tab">
+                                <i data-lucide="sparkles"></i>
+                                <span>Generative AI</span>
+                            </button>
+                            <button class="tab-btn" role="tab" aria-selected="false" data-tab="tools-tab">
+                                <i data-lucide="database"></i>
+                                <span>Tools &amp; Libraries</span>
+                            </button>
+                            <button class="tab-btn" role="tab" aria-selected="false" data-tab="cloud-tab">
+                                <i data-lucide="git-branch"></i>
+                                <span>DevOps &amp; Cloud</span>
+                            </button>
+                        </div>
+
+                        <!-- Tab Panels -->
+                        <div class="tab-content-container">
+
+                            <!-- Panel 1: Machine Learning -->
+                            <div class="tab-panel active" id="ml-tab" role="tabpanel">
+                                <div class="skills-panel-grid">
+                                    <div class="skill-group-card">
+                                        <h4 class="skill-group-title">Supervised &amp; Unsupervised</h4>
+                                        <ul class="skill-topics-list">
+                                            <li>Classification &amp; Regression Models</li>
+                                            <li>Clustering (K-Means, Hierarchical)</li>
+                                            <li>Dimensionality Reduction (PCA, t-SNE)</li>
+                                            <li>Ensemble Methods (Random Forest, XGBoost)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="skill-group-card">
+                                        <h4 class="skill-group-title">Model Tuning &amp; Tuning</h4>
+                                        <ul class="skill-topics-list">
+                                            <li>Grid Search &amp; Random Search</li>
+                                            <li>Bayesian Optimization</li>
+                                            <li>Feature Selection &amp; Scaling</li>
+                                            <li>Data Transformation &amp; Encoding</li>
+                                        </ul>
+                                    </div>
+                                    <div class="skill-group-card">
+                                        <h4 class="skill-group-title">Validation &amp; Evaluation</h4>
+                                        <ul class="skill-topics-list">
+                                            <li>Cross-Validation (K-Fold, Stratified)</li>
+                                            <li>Confusion Matrices &amp; ROC/AUC Curves</li>
+                                            <li>Regression Metrics (MSE, R², MAE)</li>
+                                            <li>Classification Metrics (F1, Precision, Recall)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Panel 2: NLP & Deep Learning -->
+                            <div class="tab-panel" id="nlp-tab" role="tabpanel">
+                                <div class="skills-panel-grid">
+                                    <div class="skill-group-card">
+                                        <h4 class="skill-group-title">Neural Networks</h4>
+                                        <ul class="skill-topics-list">
+                                            <li>Feedforward Networks &amp; Backpropagation</li>
+                                            <li>Activation &amp; Loss Functions</li>
+                                            <li>Optimization (Adam, SGD)</li>
+                                            <li>Convolutional Neural Networks (CNNs)</li>
+                                            <li>Recurrent Neural Networks (RNNs, LSTMs, GRUs)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="skill-group-card">
+                                        <h4 class="skill-group-title">Natural Language Processing</h4>
+                                        <ul class="skill-topics-list">
+                                            <li>Text Preprocessing (Lemmatization, Tokenization)</li>
+                                            <li>Sentiment Analysis &amp; Text Classification</li>
+                                            <li>Named Entity Recognition (NER)</li>
+                                            <li>Sequence-to-Sequence Modeling</li>
+                                        </ul>
+                                    </div>
+                                    <div class="skill-group-card">
+                                        <h4 class="skill-group-title">Transformers</h4>
+                                        <ul class="skill-topics-list">
+                                            <li>Attention Mechanism &amp; Self-Attention</li>
+                                            <li>Encoder-Decoder Architectures</li>
+                                            <li>BERT, GPT &amp; T5 Fine-tuning basics</li>
+                                            <li>Text Summarization models</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Panel 3: Generative AI -->
+                            <div class="tab-panel" id="genai-tab" role="tabpanel">
+                                <div class="skills-panel-grid">
+                                    <div class="skill-group-card">
+                                        <h4 class="skill-group-title">LLM Engineering</h4>
+                                        <ul class="skill-topics-list">
+                                            <li>OpenAI API &amp; Embeddings</li>
+                                            <li>Ollama local LLM setups</li>
+                                            <li>Prompt Engineering &amp; Few-Shot Design</li>
+                                            <li>Chain-of-Thought reasoning templates</li>
+                                        </ul>
+                                    </div>
+                                    <div class="skill-group-card">
+                                        <h4 class="skill-group-title">RAG Workflows</h4>
+                                        <ul class="skill-topics-list">
+                                            <li>Retrieval-Augmented Generation</li>
+                                            <li>Vector Databases (Chroma, FAISS)</li>
+                                            <li>Document Chunking &amp; Indexing Strategy</li>
+                                            <li>Context Compression &amp; Re-ranking</li>
+                                        </ul>
+                                    </div>
+                                    <div class="skill-group-card">
+                                        <h4 class="skill-group-title">Agentic Frameworks</h4>
+                                        <ul class="skill-topics-list">
+                                            <li>LangChain Chains &amp; Memory managers</li>
+                                            <li>LlamaIndex Data Connectors &amp; Query Engines</li>
+                                            <li>Agent Workflows &amp; Tool Integrations</li>
+                                            <li>Reasoning &amp; ReAct Frameworks</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Panel 4: Tools & Libraries -->
+                            <div class="tab-panel" id="tools-tab" role="tabpanel">
+                                <div class="skills-panel-grid">
+                                    <div class="skill-group-card">
+                                        <h4 class="skill-group-title">Data Manipulation</h4>
+                                        <ul class="skill-topics-list">
+                                            <li>Pandas (DataFrames, GroupBy, Merges)</li>
+                                            <li>NumPy (Array Operations, Linear Algebra)</li>
+                                            <li>SQL Databases (Queries, Joins, Aggregations)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="skill-group-card">
+                                        <h4 class="skill-group-title">ML &amp; DL Frameworks</h4>
+                                        <ul class="skill-topics-list">
+                                            <li>Scikit-Learn (Pipelines, Preprocessing)</li>
+                                            <li>TensorFlow &amp; Keras APIs</li>
+                                            <li>SpaCy (NLP Pipelines, Parsing)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="skill-group-card">
+                                        <h4 class="skill-group-title">Visualizations</h4>
+                                        <ul class="skill-topics-list">
+                                            <li>Matplotlib &amp; Seaborn</li>
+                                            <li>Exploratory Data Analysis (EDA) pipelines</li>
+                                            <li>Interactive Plots and reports</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Panel 5: DevOps & Cloud -->
+                            <div class="tab-panel" id="cloud-tab" role="tabpanel">
+                                <div class="skills-panel-grid">
+                                    <div class="skill-group-card">
+                                        <h4 class="skill-group-title">Amazon Web Services</h4>
+                                        <ul class="skill-topics-list">
+                                            <li>EC2 &amp; Simple Storage Service (S3)</li>
+                                            <li>SageMaker (Model training environments)</li>
+                                            <li>Lambda serverless computing</li>
+                                            <li>Relational Database Service (RDS)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="skill-group-card">
+                                        <h4 class="skill-group-title">Version Control</h4>
+                                        <ul class="skill-topics-list">
+                                            <li>Git Command Line</li>
+                                            <li>GitHub repositories &amp; collaboration</li>
+                                            <li>Pull Request workflows</li>
+                                            <li>Branch Management</li>
+                                        </ul>
+                                    </div>
+                                    <div class="skill-group-card">
+                                        <h4 class="skill-group-title">Professional Skills</h4>
+                                        <ul class="skill-topics-list">
+                                            <li>Analytical thinking &amp; problem decomposition</li>
+                                            <li>Technical documentation &amp; specifications</li>
+                                            <li>Cross-functional team coordination</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects-section" id="projects">
+            <div class="projects-bg-grid"></div>
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">&lt;builds&gt;</span>
+                    <h2 class="section-title">Featured Work</h2>
+                    <p class="section-subtitle">Real-world systems, pipelines, and tools designed to solve complex
+                        business and personal problems.</p>
+                </div>
+
+                <div class="projects-grid">
+
+                    <!-- Project 1 -->
+                    <div class="project-card" data-project-id="project-ollama">
+                        <div class="project-card-image">
+                            <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800"
+                                alt="Ollama AI Chatbot Thumbnail">
+                            <div class="project-overlay">
+                                <span class="view-details-lbl">Explore Architecture <i data-lucide="zoom-in"></i></span>
+                            </div>
+                        </div>
+                        <div class="project-card-content">
+                            <span class="project-card-tag">Generative AI / RAG</span>
+                            <h3 class="project-card-title">Ollama AI Student Support Chatbot</h3>
+                            <p class="project-card-excerpt">
+                                Localized LLM chatbot providing responsive speech-to-text, text-to-speech support for
+                                students suffering from academic stress.
+                            </p>
+                            <div class="project-card-tech">
+                                <span>Python</span>
+                                <span>Ollama</span>
+                                <span>SpeechRecognition</span>
+                                <span>pyttsx3</span>
+                                <span>Pandas</span>
+                            </div>
+                            <div class="project-card-links">
+                                <button class="card-action-btn primary-action">Read Details</button>
+                                <a href="https://github.com/Swethanjali151" target="_blank" rel="noopener noreferrer"
+                                    class="card-action-icon" aria-label="GitHub Repository"><i
+                                        data-lucide="github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card" data-project-id="project-instability">
+                        <div class="project-card-image">
+                            <img src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800"
+                                alt="Detection of Psychological Instability using Machine Learning Thumbnail">
+                            <div class="project-overlay">
+                                <span class="view-details-lbl">Explore Architecture <i data-lucide="zoom-in"></i></span>
+                            </div>
+                        </div>
+                        <div class="project-card-content">
+                            <span class="project-card-tag">Machine Learning / NLP</span>
+                            <h3 class="project-card-title">Detection of Psychological Instability using Machine Learning
+                            </h3>
+                            <p class="project-card-excerpt">
+                                Robust statistical classification engine predicting risk factors based on
+                                high-dimensional behavioral datasets.
+                            </p>
+                            <div class="project-card-tech">
+                                <span>Python</span>
+                                <span>Scikit-Learn</span>
+                                <span>XGBoost</span>
+                                <span>Pandas</span>
+                                <span>NumPy</span>
+                            </div>
+                            <div class="project-card-links">
+                                <button class="card-action-btn primary-action">Read Details</button>
+                                <a href="https://github.com/Swethanjali151/Detection-OF-Psychological-Instability-Project-using-Machine-Learning.git"
+                                    target="_blank" rel="noopener noreferrer" class="card-action-icon"
+                                    aria-label="GitHub Repository"><i data-lucide="github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Modals Container (Hidden by default) -->
+        <div class="modal-overlay" id="project-modal">
+            <div class="modal-card">
+                <button class="modal-close-btn" id="modal-close" aria-label="Close Modal"><i
+                        data-lucide="x"></i></button>
+                <div class="modal-body-content" id="modal-body-content">
+                    <!-- Dynamic content injected by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience & Education Section -->
+        <section class="experience-section" id="experience">
+            <div class="experience-bg-pulses"></div>
+            <div class="section-container">
+                <div class="section-header centered">
+                    <span class="section-tag">&lt;timeline&gt;</span>
+                    <h2 class="section-title">My Journey</h2>
+                    <p class="section-subtitle">A timeline of my professional training, industry internships, and
+                        academic background.</p>
+                </div>
+
+                <div class="timeline-container">
+                    <div class="timeline-scroll-line" id="timeline-line"></div>
+
+                    <!-- Timeline Item 1: Naresh IT -->
+                    <div class="timeline-item right">
+                        <div class="timeline-marker">
+                            <i data-lucide="briefcase"></i>
+                        </div>
+                        <div class="timeline-card">
+                            <div class="timeline-meta">
+                                <span class="timeline-period">June 2026 - Present</span>
+                                <span class="timeline-badge active">Ongoing</span>
+                                <a href="https://github.com/Swethanjali151/GenerativeAI-AgenticAI-Internship.git"
+                                    target="_blank" rel="noopener noreferrer" class="timeline-repo-btn"
+                                    title="View Internship Repository">
+                                    <i data-lucide="github"></i>
+                                    <span>Repo</span>
+                                </a>
+                            </div>
+                            <h3 class="timeline-role">Generative AI and Agentic AI Intern</h3>
+                            <h4 class="timeline-location">Naresh IT, Hyderabad, India</h4>
+                            <ul class="timeline-bullets">
+                                <li>Architecting cutting-edge Generative AI and Agentic AI systems leveraging advanced
+                                    Python workflows and enterprise frameworks.</li>
+                                <li>Developing high-performance Retrieval-Augmented Generation (RAG) applications using
+                                    LangChain, LlamaIndex, and OpenAI APIs.</li>
+                                <li>Optimizing Large Language Model outputs through iterative prompt engineering and
+                                    structured agentic design, automating multi-step reasoning workflows.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2: Quality Thoughts -->
+                    <div class="timeline-item left">
+                        <div class="timeline-marker">
+                            <i data-lucide="briefcase"></i>
+                        </div>
+                        <div class="timeline-card">
+                            <div class="timeline-meta">
+                                <span class="timeline-period">Recent</span>
+                                <span class="timeline-badge">Completed</span>
+                            </div>
+                            <h3 class="timeline-role">Data Science Trainee</h3>
+                            <h4 class="timeline-location">Quality Thoughts, Hyderabad, India</h4>
+                            <ul class="timeline-bullets">
+                                <li>Executed advanced data modeling, predictive analytics, and statistical analysis
+                                    across clean and unstructured datasets.</li>
+                                <li>Utilized Python, Pandas, SQL, and Scikit-Learn to streamline data preprocessing,
+                                    extract core insights, and engineer predictive features.</li>
+                                <li>Built, tuned, and validated machine learning architectures to ensure optimal
+                                    high-accuracy model generalization.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 3: College -->
+                    <div class="timeline-item right">
+                        <div class="timeline-marker">
+                            <i data-lucide="graduation-cap"></i>
+                        </div>
+                        <div class="timeline-card">
+                            <div class="timeline-meta">
+                                <span class="timeline-period">2020 - 2024</span>
+                                <span class="timeline-badge">Graduated</span>
+                            </div>
+                            <h3 class="timeline-role">Bachelor of Technology (B.Tech.)</h3>
+                            <h4 class="timeline-specialization">Computer Science and Engineering</h4>
+                            <h5 class="timeline-school">Sri Sivani College of Engineering (JNTUGV), Andhra Pradesh</h5>
+                            <div class="timeline-score-box">
+                                <span class="score-label">GPA</span>
+                                <span class="score-value">8.29 / 10.0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 4: Intermediate -->
+                    <div class="timeline-item left">
+                        <div class="timeline-marker">
+                            <i data-lucide="graduation-cap"></i>
+                        </div>
+                        <div class="timeline-card">
+                            <div class="timeline-meta">
+                                <span class="timeline-period">2018 - 2020</span>
+                                <span class="timeline-badge">Completed</span>
+                            </div>
+                            <h3 class="timeline-role">Intermediate Education (Class 12)</h3>
+                            <h4 class="timeline-specialization">MPC (Mathematics, Physics, Chemistry)</h4>
+                            <h5 class="timeline-school">Thamminaidu Junior College, Andhra Pradesh</h5>
+                            <div class="timeline-score-box">
+                                <span class="score-label">Score</span>
+                                <span class="score-value">9.13 / 10.0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 5: SSC -->
+                    <div class="timeline-item right">
+                        <div class="timeline-marker">
+                            <i data-lucide="graduation-cap"></i>
+                        </div>
+                        <div class="timeline-card">
+                            <div class="timeline-meta">
+                                <span class="timeline-period">Completed 2018</span>
+                                <span class="timeline-badge">Completed</span>
+                            </div>
+                            <h3 class="timeline-role">Secondary School Certificate (Class 10)</h3>
+                            <h5 class="timeline-school">Thamminaidu Concept School, Andhra Pradesh</h5>
+                            <div class="timeline-score-box">
+                                <span class="score-label">GPA</span>
+                                <span class="score-value">10.0 / 10.0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <canvas id="contact-canvas" class="section-bg-canvas"></canvas>
+            <div class="section-container">
+                <div class="section-header centered">
+                    <span class="section-tag">&lt;connect&gt;</span>
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="section-subtitle">Let's discuss internship opportunities, project collaborations, or key
+                        ideas in AI/ML.</p>
+                </div>
+
+                <div class="contact-grid">
+
+                    <!-- Left: Contact Details -->
+                    <div class="contact-info-column">
+                        <h3 class="contact-prompt">Let's build something intelligent.</h3>
+                        <p class="contact-prompt-desc">
+                            Feel free to drop a message, reach out via phone, or connect on <a
+                                href="https://www.linkedin.com/in/swethanjali-brahma-717878284" target="_blank"
+                                rel="noopener noreferrer" class="contact-inline-link">LinkedIn</a>. I am always open
+                            to exploring cutting-edge opportunities in AI development.
+                        </p>
+
+                        <div class="contact-details-list">
+                            <div class="contact-detail-card">
+                                <div class="card-icon"><i data-lucide="mail"></i></div>
+                                <div class="card-text">
+                                    <span class="card-text-label">Email</span>
+                                    <a href="mailto:swethabrahma@gmail.com"
+                                        class="card-text-value">swethabrahma@gmail.com</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-card">
+                                <div class="card-icon"><i data-lucide="phone"></i></div>
+                                <div class="card-text">
+                                    <span class="card-text-label">Phone</span>
+                                    <a href="tel:+919381068769" class="card-text-value">+91 9381068769</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-card">
+                                <div class="card-icon"><i data-lucide="linkedin"></i></div>
+                                <div class="card-text">
+                                    <span class="card-text-label">LinkedIn</span>
+                                    <a href="https://www.linkedin.com/in/swethanjali-brahma-717878284" target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="card-text-value">swethanjali-brahma-717878284</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-card">
+                                <div class="card-icon"><i data-lucide="map-pin"></i></div>
+                                <div class="card-text">
+                                    <span class="card-text-label">Location</span>
+                                    <span class="card-text-value">Srikakulam, Andhra Pradesh, India</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mini Language Cards -->
+                        <div class="languages-widget">
+                            <h4 class="languages-title">Languages Spoken</h4>
+                            <div class="language-badges">
+                                <div class="lang-badge">
+                                    <span class="lang-name">English</span>
+                                    <span class="lang-level">Professional</span>
+                                </div>
+                                <div class="lang-badge">
+                                    <span class="lang-name">Telugu</span>
+                                    <span class="lang-level">Native</span>
+                                </div>
+                                <div class="lang-badge">
+                                    <span class="lang-name">Oriya</span>
+                                    <span class="lang-level">Conversational</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Form -->
+                    <div class="contact-form-column">
+                        <form class="contact-form" id="contact-form" novalidate>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="form-name" class="form-label">Full Name</label>
+                                    <input type="text" id="form-name" class="form-input" placeholder="Your Name"
+                                        required>
+                                    <span class="form-error-msg" id="name-error">Please enter your name</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="form-email" class="form-label">Email Address</label>
+                                    <input type="email" id="form-email" class="form-input" placeholder="your@email.com"
+                                        required>
+                                    <span class="form-error-msg" id="email-error">Please enter a valid email</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="form-subject" class="form-label">Subject</label>
+                                <input type="text" id="form-subject" class="form-input"
+                                    placeholder="What is this regarding?" required>
+                                <span class="form-error-msg" id="subject-error">Please enter a subject</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="form-message" class="form-label">Message</label>
+                                <textarea id="form-message" class="form-input" rows="6"
+                                    placeholder="Tell me about your project or opportunity..." required></textarea>
+                                <span class="form-error-msg" id="message-error">Please write a message</span>
+                            </div>
+
+                            <button type="submit" class="submit-btn" id="submit-btn">
+                                <span class="btn-static">Send Message</span>
+                                <span class="btn-loader" style="display:none;"><i class="spinner"></i> Sending...</span>
+                            </button>
+
+                            <!-- Success Banner -->
+                            <div class="form-success-overlay" id="form-success">
+                                <div class="success-content">
+                                    <div class="success-icon"><i data-lucide="check-circle-2"></i></div>
+                                    <h3 class="success-title">Message Sent!</h3>
+                                    <p class="success-desc">Thank you. I've received your message and will get back to
+                                        you shortly.</p>
+                                    <button type="button" class="reset-form-btn" id="reset-form-btn">Send Another
+                                        Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="section-container footer-content">
+            <h3 class="footer-logo">Swethanjali Brahma</h3>
+            <p class="footer-tagline">"Aspiring Data Scientist with strong skills in Python, machine learning, and data
+                analysis, eager to solve real-world problems using data-driven insights."</p>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; <span id="current-year">2026</span> Swethanjali Brahma. All rights reserved.
+                </p>
+                <p class="credits">Crafted with passion and interactive mechanics</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>
