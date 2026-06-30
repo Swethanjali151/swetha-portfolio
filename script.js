@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(updateCursorGlow);
 
     // Hover state links selector
-    const interactiveElements = document.querySelectorAll("a, button, .project-card, .tab-btn, #hamburger-btn, .reset-form-btn");
+    const interactiveElements = document.querySelectorAll("a, button, .project-stack-card, .tab-btn, #hamburger-btn, .reset-form-btn");
     interactiveElements.forEach(el => {
         el.addEventListener("mouseenter", () => document.body.classList.add("cursor-hover"));
         el.addEventListener("mouseleave", () => document.body.classList.remove("cursor-hover"));
@@ -1168,130 +1168,504 @@ document.addEventListener("DOMContentLoaded", () => {
     trackTimelineScroll(); // Run once initially
 
     /* ==========================================================================
-       PROJECT DETAIL MODALS
+       PROJECTS 3D STACK & DYNAMIC EXPLOSION
        ========================================================================== */
-    const projectDatabase = {
-        "project-ollama": {
-            title: "Ollama AI Student Support Chatbot",
-            tag: "Generative AI / RAG Architecture",
-            image: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800",
-            excerpt: "Engineered a low-latency, fully localized LLM-powered chatbot specifically optimized to provide real-time psychological and stress support mechanisms for students.",
-            bullets: [
-                "**Local Inference Optimization**: Hosted and integrated Ollama models locally, avoiding latency and dependency on third-party remote APIs.",
-                "**Multi-modal Speech Pipelines**: Engineered responsive text-to-speech and speech-to-text systems via SpeechRecognition and pyttsx3/gTTS libraries, allowing interactive hands-free operations.",
-                "**NLP Preprocessing**: Streamlined raw inputs through Lemmatization and tokenization cleaning pipelines to ensure high contextual consistency.",
-                "**Contextual Prompt Engineering**: Implemented strict semantic directives restricting responses to student therapy bounds, including immediate escalation recommendations for critical indicators."
-            ],
-            tech: ["Python", "Ollama Local LLMs", "Natural Language Processing (NLP)", "SpeechRecognition", "pyttsx3", "gTTS", "Pandas"],
-            github: "https://github.com/Swethanjali151"
-        },
-        "project-instability": {
-            title: "Detection of Psychological Instability using Machine Learning",
-            tag: "Machine Learning / NLP Classifiers",
-            image: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800",
-            excerpt: "Developed robust statistical classification engines capable of identifying mental health risk indicators based on high-dimensional behavioral datasets.",
-            bullets: [
-                "**Model Benchmark Matrix**: Integrated, tuned, and compared a series of classification architectures including Logistic Regression, Support Vector Machines (SVM), Decision Trees, K-Nearest Neighbors (KNN), and XGBoost.",
-                "**Rigorous Pipeline Preprocessing**: Created automated standard scaling, category encoding, and null imputation components using Scikit-Learn pipelines.",
-                "**Over-fitting Elimination**: Conducted Stratified K-Fold cross-validation, hyperparameter tuning via Grid Search, and checked ROC-AUC curves to achieve a highly generalized high-accuracy output.",
-                "**Data Exploration**: Conducted deep correlation analysis, data profiling, and statistical visualization utilizing Matplotlib and Seaborn."
-            ],
-            tech: ["Python", "Pandas", "NumPy", "Scikit-Learn", "XGBoost", "Machine Learning Classifiers", "Matplotlib", "Seaborn"],
-            github: "https://github.com/Swethanjali151/Detection-OF-Psychological-Instability-Project-using-Machine-Learning.git"
-        }
-    };
-
-    const modalOverlay = document.getElementById("project-modal");
-    const modalBodyContent = document.getElementById("modal-body-content");
-    const modalCloseBtn = document.getElementById("modal-close");
-    const projectCards = document.querySelectorAll(".project-card");
-
-    const openModal = (projectId) => {
-        const data = projectDatabase[projectId];
-        if (!data) return;
-
-        // Build bullets list HTML
-        const bulletsHtml = data.bullets
-            .map(b => {
-                // simple markdown bold replacement
-                const formatted = b.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                return `<li>${formatted}</li>`;
-            })
-            .join("");
-
-        // Build tech badges HTML
-        const techHtml = data.tech
-            .map(t => `<span>${t}</span>`)
-            .join("");
-
-        modalBodyContent.innerHTML = `
-            <img class="modal-hero-img" src="${data.image}" alt="${data.title}">
-            <div class="modal-details-content">
-                <span class="modal-project-tag">${data.tag}</span>
-                <h2 class="modal-project-title">${data.title}</h2>
-                
-                <h3 class="modal-subtitle">Project Overview</h3>
-                <p class="about-text" style="margin-bottom: 25px;">${data.excerpt}</p>
-                
-                <h3 class="modal-subtitle">Key Implementation Milestones</h3>
-                <ul class="modal-desc-bullets">
-                    ${bulletsHtml}
-                </ul>
-                
-                <div class="modal-tech-section">
-                    <h3 class="modal-subtitle">Technologies Utilized</h3>
-                    <div class="project-card-tech" style="margin-bottom: 0;">
-                        ${techHtml}
-                    </div>
-                </div>
-                
-                <div class="project-card-links" style="margin-top: 30px; border-top: 1px solid var(--border-glass); padding-top: 20px;">
-                    <a href="${data.github}" target="_blank" rel="noopener noreferrer" class="primary-btn">
-                        <i data-lucide="github"></i>
-                        <span>View Source Code</span>
-                    </a>
-                </div>
-            </div>
-        `;
+    const stackContainer = document.getElementById("projects-stack-container");
+    const stackCards = Array.from(document.querySelectorAll(".project-stack-card"));
+    const prevBtn = document.getElementById("stack-prev-btn");
+    const nextBtn = document.getElementById("stack-next-btn");
+    const dotsContainer = document.getElementById("stack-dots-container");
+    const explosionCanvas = document.getElementById("project-explosion-canvas");
+    
+    // Setup Stack Dot Indicators dynamically
+    dotsContainer.innerHTML = "";
+    stackCards.forEach((_, index) => {
+        const dot = document.createElement("span");
+        dot.classList.add("stack-dot");
+        if (index === 0) dot.classList.add("active");
+        dot.setAttribute("data-index", index);
+        dotsContainer.appendChild(dot);
+    });
+    
+    const stackDots = Array.from(dotsContainer.querySelectorAll(".stack-dot"));
+    
+    let currentStackIndex = 0;
+    let isExploded = false;
+    let activeExplodedCard = null;
+    
+    const updateStack = () => {
+        const totalCards = stackCards.length;
         
-        // Re-trigger Lucide Icons inside modal
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
+        stackCards.forEach((card, index) => {
+            let relIndex = (index - currentStackIndex + totalCards) % totalCards;
+            
+            if (relIndex === 0) {
+                card.setAttribute("data-status", "active");
+            } else if (relIndex === 1) {
+                card.setAttribute("data-status", "behind-1");
+            } else if (relIndex === 2) {
+                card.setAttribute("data-status", "behind-2");
+            } else if (relIndex === 3) {
+                card.setAttribute("data-status", "behind-3");
+            } else {
+                card.setAttribute("data-status", "hidden");
+            }
+        });
+        
+        // Update dots
+        stackDots.forEach((dot, index) => {
+            if (index === currentStackIndex) {
+                dot.classList.add("active");
+            } else {
+                dot.classList.remove("active");
+            }
+        });
+    };
+    
+    // Initial call to set up stack positions
+    updateStack();
+    
+    // Cycle Stack Handlers
+    const cycleNext = () => {
+        if (isExploded) return;
+        currentStackIndex = (currentStackIndex + 1) % stackCards.length;
+        updateStack();
+    };
+    
+    const cyclePrev = () => {
+        if (isExploded) return;
+        currentStackIndex = (currentStackIndex - 1 + stackCards.length) % stackCards.length;
+        updateStack();
+    };
+    
+    if (nextBtn) nextBtn.addEventListener("click", cycleNext);
+    if (prevBtn) prevBtn.addEventListener("click", cyclePrev);
+    
+    stackDots.forEach(dot => {
+        dot.addEventListener("click", () => {
+            if (isExploded) return;
+            currentStackIndex = parseInt(dot.getAttribute("data-index"));
+            updateStack();
+        });
+    });
+    
+    // Particle Explosion System
+    let expCtx = null;
+    let expParticles = [];
+    let expAnimationId = null;
+    
+    const initExplosionCanvas = () => {
+        if (!explosionCanvas) return;
+        expCtx = explosionCanvas.getContext("2d");
+        explosionCanvas.width = window.innerWidth;
+        explosionCanvas.height = window.innerHeight;
+    };
+    
+    window.addEventListener("resize", () => {
+        if (explosionCanvas && explosionCanvas.style.display === "block") {
+            explosionCanvas.width = window.innerWidth;
+            explosionCanvas.height = window.innerHeight;
         }
-
-        // Fade in modal
-        modalOverlay.classList.add("open");
-        document.body.style.overflow = "hidden"; // disable scroll
+    });
+    
+    class ExplosionParticle {
+        constructor(x, y, color, isButterfly = false) {
+            this.x = x;
+            this.y = y;
+            this.size = Math.random() * 5 + 3; // slightly larger for butterflies
+            const angle = Math.random() * Math.PI * 2;
+            const speed = isButterfly ? (Math.random() * 8 + 4) : (Math.random() * 12 + 6); // slightly slower drift
+            this.vx = Math.cos(angle) * speed;
+            this.vy = Math.sin(angle) * speed;
+            this.gravity = 0.08;
+            this.friction = isButterfly ? 0.96 : 0.95; // floats longer
+            this.alpha = 1;
+            this.decay = isButterfly ? (Math.random() * 0.015 + 0.008) : (Math.random() * 0.02 + 0.012); // decays slower
+            this.color = color;
+            this.isButterfly = isButterfly;
+            this.wingOffset = Math.random() * 100;
+        }
+        
+        update() {
+            this.vx *= this.friction;
+            this.vy *= this.friction;
+            
+            if (this.isButterfly) {
+                // Sinuous flight path (drift left/right and flutter up/down)
+                this.vx += Math.sin(Date.now() * 0.02 + this.wingOffset) * 0.15;
+                this.vy += (Math.random() - 0.45) * 0.15; // light float
+            } else {
+                this.vy += this.gravity;
+            }
+            
+            this.x += this.vx;
+            this.y += this.vy;
+            this.alpha -= this.decay;
+        }
+        
+        draw(ctx) {
+            ctx.save();
+            ctx.globalAlpha = this.alpha;
+            ctx.shadowBlur = 12;
+            ctx.shadowColor = this.color;
+            
+            if (this.isButterfly) {
+                ctx.translate(this.x, this.y);
+                const angle = Math.atan2(this.vy, this.vx);
+                ctx.rotate(angle);
+                
+                // Wing flapping animation
+                const wingScale = Math.abs(Math.sin(Date.now() * 0.015 + this.wingOffset));
+                
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                // Left Wing
+                ctx.moveTo(0, 0);
+                ctx.bezierCurveTo(-this.size * 1.5 * wingScale, -this.size * 2, -this.size * 2 * wingScale, -this.size, 0, 0);
+                ctx.bezierCurveTo(-this.size * wingScale, this.size, -this.size * 1.5 * wingScale, this.size * 2, 0, 0);
+                
+                // Right Wing
+                ctx.moveTo(0, 0);
+                ctx.bezierCurveTo(this.size * 1.5 * wingScale, -this.size * 2, this.size * 2 * wingScale, -this.size, 0, 0);
+                ctx.bezierCurveTo(this.size * wingScale, this.size, this.size * 1.5 * wingScale, this.size * 2, 0, 0);
+                ctx.fill();
+                
+                // Tiny body/antennae
+                ctx.strokeStyle = this.color;
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(0, -this.size / 2);
+                ctx.lineTo(-this.size / 2, -this.size * 1.2);
+                ctx.moveTo(0, -this.size / 2);
+                ctx.lineTo(this.size / 2, -this.size * 1.2);
+                ctx.stroke();
+            } else {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+            ctx.restore();
+        }
+    }
+    
+    const animateExplosion = () => {
+        if (!expCtx || expParticles.length === 0) {
+            if (explosionCanvas) explosionCanvas.style.display = "none";
+            cancelAnimationFrame(expAnimationId);
+            return;
+        }
+        
+        expCtx.clearRect(0, 0, explosionCanvas.width, explosionCanvas.height);
+        
+        for (let i = expParticles.length - 1; i >= 0; i--) {
+            const p = expParticles[i];
+            p.update();
+            p.draw(expCtx);
+            
+            if (p.alpha <= 0) {
+                expParticles.splice(i, 1);
+            }
+        }
+        
+        expAnimationId = requestAnimationFrame(animateExplosion);
     };
-
-    const closeModal = () => {
-        modalOverlay.classList.remove("open");
-        document.body.style.overflow = ""; // restore scroll
+    
+    const triggerExplosion = (x, y, projectId) => {
+        initExplosionCanvas();
+        if (!explosionCanvas || !expCtx) return;
+        
+        explosionCanvas.style.display = "block";
+        expParticles = [];
+        
+        // Color palettes matching project themes
+        let colors = ["#6366f1", "#a855f7", "#ffffff"]; // default Indigo/Violet
+        if (projectId === "project-ollama") {
+            colors = ["#10b981", "#34d399", "#ffffff", "#6366f1"]; // Emerald & Indigo
+        } else if (projectId === "project-instability") {
+            colors = ["#a855f7", "#ec4899", "#ffffff", "#3b82f6"]; // Violet & Pink & Blue
+        } else if (projectId === "project-chatbot") {
+            colors = ["#10b981", "#34d399", "#f59e0b", "#a855f7", "#ffffff"]; // Emerald & Mint & Gold & Violet & White
+        } else if (projectId === "project-eda-insights") {
+            colors = ["#06b6d4", "#10b981", "#ffffff", "#14b8a6"]; // Cyan & Emerald & Teal
+        }
+        
+        const particleCount = window.innerWidth < 768 ? 60 : 120;
+        const isButterfly = projectId === "project-chatbot";
+        for (let i = 0; i < particleCount; i++) {
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            expParticles.push(new ExplosionParticle(x, y, color, isButterfly));
+        }
+        
+        cancelAnimationFrame(expAnimationId);
+        expAnimationId = requestAnimationFrame(animateExplosion);
     };
-
-    projectCards.forEach(card => {
+    
+    // FLIP Expansion Animation
+    const explodeCard = (card) => {
+        if (isExploded) return;
+        
+        const projectId = card.getAttribute("data-project-id");
+        
+        // 1. Particle Explosion at Card Center
+        const rect = card.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        triggerExplosion(centerX, centerY, projectId);
+        
+        // 2. FLIP: First (Get starting layout rect)
+        const first = card.getBoundingClientRect();
+        
+        // 3. FLIP: Last (Apply class to trigger final styles)
+        card.classList.add("exploded");
+        activeExplodedCard = card;
+        
+        // Disable 3D perspective on parents so fixed positioning works relative to viewport
+        if (stackContainer) {
+            stackContainer.classList.add("stack-exploded");
+            const wrapper = stackContainer.closest(".projects-stack-wrapper");
+            if (wrapper) wrapper.classList.add("stack-exploded");
+        }
+        
+        // Scatter other cards and hide controls
+        stackCards.forEach(c => {
+            if (c !== card) c.classList.add("scattered");
+        });
+        const controls = document.querySelector(".stack-controls");
+        if (controls) controls.classList.add("hidden");
+        document.body.style.overflow = "hidden"; // Disable scroll
+        
+        const last = card.getBoundingClientRect();
+        
+        // 4. FLIP: Invert (Calculate diffs and apply inverse transform immediately)
+        const invertX = (first.left + first.width / 2) - (last.left + last.width / 2);
+        const invertY = (first.top + first.height / 2) - (last.top + last.height / 2);
+        const scaleX = first.width / last.width;
+        const scaleY = first.height / last.height;
+        
+        card.style.transform = `translate(calc(-50% + ${invertX}px), calc(-50% + ${invertY}px)) scale(${scaleX}, ${scaleY})`;
+        card.style.transition = "none";
+        
+        // Force reflow to register the invert state
+        card.offsetHeight;
+        
+        // 5. FLIP: Play (Remove inverse transform to animate smoothly to center)
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                card.style.transition = "transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.7s ease, border-color 0.7s ease, background-color 0.4s ease";
+                card.style.transform = "translate(-50%, -50%) scale(1)";
+                isExploded = true;
+            });
+        });
+    };
+    
+    // FLIP Collapse Animation
+    const collapseCard = (card) => {
+        if (!isExploded) return;
+        
+        // 1. FLIP: First (Get current large rect)
+        const first = card.getBoundingClientRect();
+        
+        // 2. FLIP: Last (Remove class to restore stacked styles)
+        card.classList.remove("exploded");
+        activeExplodedCard = null;
+        
+        // Restore 3D perspective on parents
+        if (stackContainer) {
+            stackContainer.classList.remove("stack-exploded");
+            const wrapper = stackContainer.closest(".projects-stack-wrapper");
+            if (wrapper) wrapper.classList.remove("stack-exploded");
+        }
+        
+        // Gather other cards back and show controls
+        stackCards.forEach(c => {
+            c.classList.remove("scattered");
+        });
+        const controls = document.querySelector(".stack-controls");
+        if (controls) controls.classList.remove("hidden");
+        document.body.style.overflow = ""; // Restore scroll
+        
+        const last = card.getBoundingClientRect();
+        
+        // 3. FLIP: Invert
+        const invertX = (first.left + first.width / 2) - (last.left + last.width / 2);
+        const invertY = (first.top + first.height / 2) - (last.top + last.height / 2);
+        const scaleX = first.width / last.width;
+        const scaleY = first.height / last.height;
+        
+        // Set starting state for collapse animation
+        card.style.transition = "none";
+        card.style.transform = `translate(${invertX}px, ${invertY}px) scale(${scaleX}, ${scaleY})`;
+        
+        card.offsetHeight; // Force reflow
+        
+        // 4. FLIP: Play (Animate back to stacked position)
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                card.style.transition = "transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.7s ease, border-color 0.7s ease, background-color 0.4s ease";
+                card.style.transform = "translate3d(0, 0, 0) scale(1)";
+                
+                // Clear inline styles once animation completes
+                setTimeout(() => {
+                    card.style.transform = "";
+                    card.style.transition = "";
+                    isExploded = false;
+                }, 700);
+            });
+        });
+    };
+    
+    // Card Event Listeners
+    stackCards.forEach(card => {
         card.addEventListener("click", (e) => {
-            const projectId = card.getAttribute("data-project-id");
-            // Only trigger if we didn't click direct external links (e.g. direct github icon)
-            if (!e.target.closest(".card-action-icon")) {
-                openModal(projectId);
+            // Check if we clicked the close button
+            if (e.target.closest(".close-exploded-btn")) {
+                e.stopPropagation();
+                collapseCard(card);
+                return;
+            }
+            
+            // Avoid triggering actions if clicking external links (e.g., github icon)
+            if (e.target.closest(".card-action-icon")) {
+                return;
+            }
+            
+            const isReadDetailsClick = e.target.closest(".card-action-btn.primary-action") || e.target.closest(".primary-action");
+            const status = card.getAttribute("data-status");
+            
+            if (status === "active" || isReadDetailsClick) {
+                // If it's active or they clicked "Read Details" directly, make sure it's active and explode it!
+                if (status !== "active") {
+                    const index = stackCards.indexOf(card);
+                    currentStackIndex = index;
+                    updateStack();
+                }
+                explodeCard(card);
+            } else {
+                // If it's behind and they clicked elsewhere on the card, just bring it to the front
+                const index = stackCards.indexOf(card);
+                currentStackIndex = index;
+                updateStack();
             }
         });
     });
-
-    modalCloseBtn.addEventListener("click", closeModal);
-    modalOverlay.addEventListener("click", (e) => {
-        if (e.target === modalOverlay) {
-            closeModal();
+    
+    // Exploded View Navigation Mechanics
+    let isTransitioning = false;
+    
+    const cycleExploded = (direction) => {
+        if (!isExploded || !activeExplodedCard || isTransitioning) return;
+        isTransitioning = true;
+        
+        const currentCard = activeExplodedCard;
+        const totalCards = stackCards.length;
+        
+        let newIndex;
+        if (direction === "next") {
+            newIndex = (currentStackIndex + 1) % totalCards;
+        } else {
+            newIndex = (currentStackIndex - 1 + totalCards) % totalCards;
         }
-    });
-
-    // Close on escape key
+        
+        const nextCard = stackCards[newIndex];
+        
+        // 1. Fade out & slide current card
+        currentCard.style.transition = "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease";
+        if (direction === "next") {
+            currentCard.style.transform = "translate(-120%, -50%) scale(0.9)";
+        } else {
+            currentCard.style.transform = "translate(20%, -50%) scale(0.9)";
+        }
+        currentCard.style.opacity = "0";
+        
+        setTimeout(() => {
+            // Reset current card
+            currentCard.classList.remove("exploded");
+            currentCard.classList.add("scattered");
+            currentCard.style.transform = "";
+            currentCard.style.transition = "";
+            currentCard.style.opacity = "";
+            
+            // Update stack index
+            currentStackIndex = newIndex;
+            updateStack();
+            
+            // Setup next card
+            nextCard.classList.remove("scattered");
+            nextCard.classList.add("exploded");
+            activeExplodedCard = nextCard;
+            
+            // Trigger lucide icon replacement if any new items loaded
+            if (typeof lucide !== "undefined") {
+                lucide.createIcons();
+            }
+            
+            nextCard.style.transition = "none";
+            if (direction === "next") {
+                nextCard.style.transform = "translate(20%, -50%) scale(0.9)";
+            } else {
+                nextCard.style.transform = "translate(-120%, -50%) scale(0.9)";
+            }
+            nextCard.style.opacity = "0";
+            
+            nextCard.offsetHeight; // force reflow
+            
+            // Slide next card in
+            requestAnimationFrame(() => {
+                nextCard.style.transition = "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease";
+                nextCard.style.transform = "translate(-50%, -50%) scale(1)";
+                nextCard.style.opacity = "1";
+                
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, 500);
+            });
+        }, 400);
+    };
+    
+    // Bind Exploded Floating Buttons
+    const explodedPrevBtn = document.getElementById("exploded-prev-btn");
+    const explodedNextBtn = document.getElementById("exploded-next-btn");
+    if (explodedPrevBtn) {
+        explodedPrevBtn.addEventListener("click", () => cycleExploded("prev"));
+    }
+    if (explodedNextBtn) {
+        explodedNextBtn.addEventListener("click", () => cycleExploded("next"));
+    }
+    
+    // Keyboard Navigation when Exploded
     document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && modalOverlay.classList.contains("open")) {
-            closeModal();
+        if (isExploded && activeExplodedCard) {
+            if (e.key === "Escape") {
+                collapseCard(activeExplodedCard);
+            } else if (e.key === "ArrowRight" || e.key === "d" || e.key === "D") {
+                cycleExploded("next");
+            } else if (e.key === "ArrowLeft" || e.key === "a" || e.key === "A") {
+                cycleExploded("prev");
+            }
         }
     });
+
+    // Swipe gestures for mobile when exploded
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    document.addEventListener("touchstart", (e) => {
+        if (!isExploded) return;
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    document.addEventListener("touchend", (e) => {
+        if (!isExploded) return;
+        touchEndX = e.changedTouches[0].screenX;
+        
+        const threshold = 55;
+        if (touchEndX < touchStartX - threshold) {
+            cycleExploded("next");
+        } else if (touchEndX > touchStartX + threshold) {
+            cycleExploded("prev");
+        }
+    }, { passive: true });
 
     /* ==========================================================================
        CONTACT FORM VALIDATION & SUBMISSION

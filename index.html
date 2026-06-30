@@ -308,7 +308,7 @@
 
                         <!-- Tab Headers -->
                         <div class="tab-headers" role="tablist">
-                            <button class="tab-btn active" role="tab" aria-selected="true" data-tab="ml-tab">
+                            <button class="tab-btn" role="tab" aria-selected="false" data-tab="ml-tab">
                                 <i data-lucide="activity"></i>
                                 <span>Machine Learning</span>
                             </button>
@@ -316,17 +316,17 @@
                                 <i data-lucide="message-square"></i>
                                 <span>Deep Learning &amp; NLP</span>
                             </button>
-                            <button class="tab-btn" role="tab" aria-selected="false" data-tab="genai-tab">
+                            <button class="tab-btn active" role="tab" aria-selected="true" data-tab="genai-tab">
                                 <i data-lucide="sparkles"></i>
                                 <span>Generative AI</span>
                             </button>
                             <button class="tab-btn" role="tab" aria-selected="false" data-tab="tools-tab">
                                 <i data-lucide="database"></i>
-                                <span>Tools &amp; Libraries</span>
+                                <span>Data Science &amp; Tools</span>
                             </button>
                             <button class="tab-btn" role="tab" aria-selected="false" data-tab="cloud-tab">
-                                <i data-lucide="git-branch"></i>
-                                <span>DevOps &amp; Cloud</span>
+                                <i data-lucide="code-2"></i>
+                                <span>Languages &amp; Tools</span>
                             </button>
                         </div>
 
@@ -334,162 +334,147 @@
                         <div class="tab-content-container">
 
                             <!-- Panel 1: Machine Learning -->
-                            <div class="tab-panel active" id="ml-tab" role="tabpanel">
+                            <div class="tab-panel" id="ml-tab" role="tabpanel">
                                 <div class="skills-panel-grid">
                                     <div class="skill-group-card">
-                                        <h4 class="skill-group-title">Supervised &amp; Unsupervised</h4>
+                                        <h4 class="skill-group-title">Core ML Paradigms</h4>
                                         <ul class="skill-topics-list">
-                                            <li>Classification &amp; Regression Models</li>
-                                            <li>Clustering (K-Means, Hierarchical)</li>
-                                            <li>Dimensionality Reduction (PCA, t-SNE)</li>
-                                            <li>Ensemble Methods (Random Forest, XGBoost)</li>
+                                            <li>Supervised Learning</li>
+                                            <li>Unsupervised Learning</li>
                                         </ul>
                                     </div>
                                     <div class="skill-group-card">
-                                        <h4 class="skill-group-title">Model Tuning &amp; Tuning</h4>
+                                        <h4 class="skill-group-title">Feature Engineering</h4>
                                         <ul class="skill-topics-list">
-                                            <li>Grid Search &amp; Random Search</li>
-                                            <li>Bayesian Optimization</li>
-                                            <li>Feature Selection &amp; Scaling</li>
-                                            <li>Data Transformation &amp; Encoding</li>
+                                            <li>Feature Engineering</li>
+                                            <li>Data Preprocessing</li>
                                         </ul>
                                     </div>
                                     <div class="skill-group-card">
-                                        <h4 class="skill-group-title">Validation &amp; Evaluation</h4>
+                                        <h4 class="skill-group-title">Tuning &amp; Evaluation</h4>
                                         <ul class="skill-topics-list">
-                                            <li>Cross-Validation (K-Fold, Stratified)</li>
-                                            <li>Confusion Matrices &amp; ROC/AUC Curves</li>
-                                            <li>Regression Metrics (MSE, R², MAE)</li>
-                                            <li>Classification Metrics (F1, Precision, Recall)</li>
+                                            <li>Model Evaluation</li>
+                                            <li>Hyperparameter Tuning</li>
+                                            <li>Cross-Validation</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Panel 2: NLP & Deep Learning -->
+                            <!-- Panel 2: Deep Learning & NLP -->
                             <div class="tab-panel" id="nlp-tab" role="tabpanel">
                                 <div class="skills-panel-grid">
                                     <div class="skill-group-card">
-                                        <h4 class="skill-group-title">Neural Networks</h4>
+                                        <h4 class="skill-group-title">Neural Architectures</h4>
                                         <ul class="skill-topics-list">
-                                            <li>Feedforward Networks &amp; Backpropagation</li>
-                                            <li>Activation &amp; Loss Functions</li>
-                                            <li>Optimization (Adam, SGD)</li>
-                                            <li>Convolutional Neural Networks (CNNs)</li>
-                                            <li>Recurrent Neural Networks (RNNs, LSTMs, GRUs)</li>
+                                            <li>Neural Networks</li>
+                                            <li>Convolutional Neural Networks (CNN)</li>
+                                            <li>Recurrent Neural Networks (RNN)</li>
                                         </ul>
                                     </div>
                                     <div class="skill-group-card">
-                                        <h4 class="skill-group-title">Natural Language Processing</h4>
+                                        <h4 class="skill-group-title">Text Preprocessing</h4>
                                         <ul class="skill-topics-list">
-                                            <li>Text Preprocessing (Lemmatization, Tokenization)</li>
-                                            <li>Sentiment Analysis &amp; Text Classification</li>
-                                            <li>Named Entity Recognition (NER)</li>
-                                            <li>Sequence-to-Sequence Modeling</li>
+                                            <li>Lemmatization</li>
+                                            <li>Tokenization</li>
                                         </ul>
                                     </div>
                                     <div class="skill-group-card">
-                                        <h4 class="skill-group-title">Transformers</h4>
+                                        <h4 class="skill-group-title">Language Modeling</h4>
                                         <ul class="skill-topics-list">
-                                            <li>Attention Mechanism &amp; Self-Attention</li>
-                                            <li>Encoder-Decoder Architectures</li>
-                                            <li>BERT, GPT &amp; T5 Fine-tuning basics</li>
-                                            <li>Text Summarization models</li>
+                                            <li>Transformers</li>
+                                            <li>Text Summarization</li>
+                                            <li>Sentiment Analysis</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Panel 3: Generative AI -->
-                            <div class="tab-panel" id="genai-tab" role="tabpanel">
+                            <div class="tab-panel active" id="genai-tab" role="tabpanel">
                                 <div class="skills-panel-grid">
                                     <div class="skill-group-card">
-                                        <h4 class="skill-group-title">LLM Engineering</h4>
+                                        <h4 class="skill-group-title">LLM Engineering &amp; Tuning</h4>
                                         <ul class="skill-topics-list">
-                                            <li>OpenAI API &amp; Embeddings</li>
-                                            <li>Ollama local LLM setups</li>
-                                            <li>Prompt Engineering &amp; Few-Shot Design</li>
-                                            <li>Chain-of-Thought reasoning templates</li>
+                                            <li>LLMS (Large Language Models)</li>
+                                            <li>LLM Fine-Tuning</li>
+                                            <li>Ollama (Local LLM Inference)</li>
+                                            <li>API Integrations &amp; API Keys</li>
                                         </ul>
                                     </div>
                                     <div class="skill-group-card">
-                                        <h4 class="skill-group-title">RAG Workflows</h4>
+                                        <h4 class="skill-group-title">Frameworks &amp; Agentic Workflows</h4>
                                         <ul class="skill-topics-list">
-                                            <li>Retrieval-Augmented Generation</li>
-                                            <li>Vector Databases (Chroma, FAISS)</li>
-                                            <li>Document Chunking &amp; Indexing Strategy</li>
-                                            <li>Context Compression &amp; Re-ranking</li>
+                                            <li>LangChain</li>
+                                            <li>LangGraph (Stateful Agents)</li>
+                                            <li>LlamaIndex</li>
+                                            <li>Agentic AI Architecture</li>
                                         </ul>
                                     </div>
                                     <div class="skill-group-card">
-                                        <h4 class="skill-group-title">Agentic Frameworks</h4>
+                                        <h4 class="skill-group-title">Retrieval &amp; Deployment</h4>
                                         <ul class="skill-topics-list">
-                                            <li>LangChain Chains &amp; Memory managers</li>
-                                            <li>LlamaIndex Data Connectors &amp; Query Engines</li>
-                                            <li>Agent Workflows &amp; Tool Integrations</li>
-                                            <li>Reasoning &amp; ReAct Frameworks</li>
+                                            <li>RAG Pipelines</li>
+                                            <li>Multimodal RAG</li>
+                                            <li>Streamlit &amp; Gradio Interfaces</li>
+                                            <li>Prompt Engineering</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Panel 4: Tools & Libraries -->
+                            <!-- Panel 4: Data Science & Tools -->
                             <div class="tab-panel" id="tools-tab" role="tabpanel">
                                 <div class="skills-panel-grid">
                                     <div class="skill-group-card">
                                         <h4 class="skill-group-title">Data Manipulation</h4>
                                         <ul class="skill-topics-list">
-                                            <li>Pandas (DataFrames, GroupBy, Merges)</li>
-                                            <li>NumPy (Array Operations, Linear Algebra)</li>
-                                            <li>SQL Databases (Queries, Joins, Aggregations)</li>
+                                            <li>Pandas</li>
+                                            <li>NumPy</li>
+                                            <li>Exploratory Data Analysis (EDA)</li>
                                         </ul>
                                     </div>
                                     <div class="skill-group-card">
-                                        <h4 class="skill-group-title">ML &amp; DL Frameworks</h4>
+                                        <h4 class="skill-group-title">Libraries &amp; Frameworks</h4>
                                         <ul class="skill-topics-list">
-                                            <li>Scikit-Learn (Pipelines, Preprocessing)</li>
-                                            <li>TensorFlow &amp; Keras APIs</li>
-                                            <li>SpaCy (NLP Pipelines, Parsing)</li>
+                                            <li>Scikit-Learn</li>
+                                            <li>TensorFlow</li>
+                                            <li>Keras</li>
+                                            <li>SpaCy</li>
                                         </ul>
                                     </div>
                                     <div class="skill-group-card">
-                                        <h4 class="skill-group-title">Visualizations</h4>
+                                        <h4 class="skill-group-title">Visualization</h4>
                                         <ul class="skill-topics-list">
-                                            <li>Matplotlib &amp; Seaborn</li>
-                                            <li>Exploratory Data Analysis (EDA) pipelines</li>
-                                            <li>Interactive Plots and reports</li>
+                                            <li>Matplotlib</li>
+                                            <li>Seaborn</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Panel 5: DevOps & Cloud -->
+                            <!-- Panel 5: Languages & Tools -->
                             <div class="tab-panel" id="cloud-tab" role="tabpanel">
                                 <div class="skills-panel-grid">
                                     <div class="skill-group-card">
-                                        <h4 class="skill-group-title">Amazon Web Services</h4>
+                                        <h4 class="skill-group-title">Languages</h4>
                                         <ul class="skill-topics-list">
-                                            <li>EC2 &amp; Simple Storage Service (S3)</li>
-                                            <li>SageMaker (Model training environments)</li>
-                                            <li>Lambda serverless computing</li>
-                                            <li>Relational Database Service (RDS)</li>
+                                            <li>Python</li>
+                                            <li>Java (Basics)</li>
+                                            <li>SQL (Structured Query Language)</li>
                                         </ul>
                                     </div>
                                     <div class="skill-group-card">
                                         <h4 class="skill-group-title">Version Control</h4>
                                         <ul class="skill-topics-list">
-                                            <li>Git Command Line</li>
-                                            <li>GitHub repositories &amp; collaboration</li>
-                                            <li>Pull Request workflows</li>
-                                            <li>Branch Management</li>
+                                            <li>Git</li>
+                                            <li>GitHub (version control)</li>
                                         </ul>
                                     </div>
                                     <div class="skill-group-card">
-                                        <h4 class="skill-group-title">Professional Skills</h4>
+                                        <h4 class="skill-group-title">Cloud Infrastructure</h4>
                                         <ul class="skill-topics-list">
-                                            <li>Analytical thinking &amp; problem decomposition</li>
-                                            <li>Technical documentation &amp; specifications</li>
-                                            <li>Cross-functional team coordination</li>
+                                            <li>Amazon Web Services (AWS)</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -505,6 +490,9 @@
         <!-- Projects Section -->
         <section class="projects-section" id="projects">
             <div class="projects-bg-grid"></div>
+            <!-- Canvas for project explosion particles -->
+            <canvas id="project-explosion-canvas"></canvas>
+
             <div class="section-container">
                 <div class="section-header">
                     <span class="section-tag">&lt;builds&gt;</span>
@@ -513,87 +501,295 @@
                         business and personal problems.</p>
                 </div>
 
-                <div class="projects-grid">
+                <div class="projects-stack-wrapper">
+                    <div class="projects-stack-container" id="projects-stack-container">
 
-                    <!-- Project 1 -->
-                    <div class="project-card" data-project-id="project-ollama">
-                        <div class="project-card-image">
-                            <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800"
-                                alt="Ollama AI Chatbot Thumbnail">
-                            <div class="project-overlay">
-                                <span class="view-details-lbl">Explore Architecture <i data-lucide="zoom-in"></i></span>
+                        <!-- Project 1 (New RAG Project) -->
+                        <div class="project-stack-card" data-project-id="project-rag" data-status="active">
+                            <div class="project-card-visual">
+                                <img src="assets/project_rag.png" alt="LLM-Powered Document Intelligence & RAG Pipeline Thumbnail">
                             </div>
+                            <div class="project-card-info">
+                                <span class="project-card-tag">Generative AI / RAG</span>
+                                <h3 class="project-card-title">LLM-Powered Document Intelligence & RAG Pipeline</h3>
+                                <p class="project-card-excerpt">
+                                    Developed an end-to-end Retrieval-Augmented Generation (RAG) pipeline utilizing LangChain and Groq to extract and summarize insights from complex PDF documents.
+                                </p>
+                                
+                                <div class="project-card-detailed-specs">
+                                    <h4 class="details-subtitle">Key Implementation Highlights</h4>
+                                    <ul class="details-bullets">
+                                        <li><strong>Robust Vector Ingestion</strong>: Architected a robust vector ingestion workflow using Unstructured data loaders and CharacterTextSplitter to chunk and preprocess unstructured data with minimal contextual loss.</li>
+                                        <li><strong>Semantic Vector Storage</strong>: Leveraged HuggingFace Embeddings and a Chroma vector database to enable highly precise semantic search and similarity-based context retrieval.</li>
+                                        <li><strong>Production Observability</strong>: Implemented production-grade LLM observability by configuring LangSmith for deep-dive execution tracing, chain evaluation, and latency monitoring.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="project-card-tech">
+                                    <span>LangChain</span>
+                                    <span>LangSmith</span>
+                                    <span>ChromaDB</span>
+                                    <span>Groq API</span>
+                                    <span>HuggingFace</span>
+                                </div>
+                                <div class="project-card-links">
+                                    <button class="card-action-btn primary-action">
+                                        <span class="btn-text">Read Details</span>
+                                        <i data-lucide="arrow-right" class="btn-icon"></i>
+                                    </button>
+                                    <a href="https://github.com/Swethanjali151" target="_blank" rel="noopener noreferrer" class="primary-btn github-btn">
+                                        <i data-lucide="github"></i>
+                                        <span>View Source Code</span>
+                                    </a>
+                                    <a href="https://github.com/Swethanjali151" target="_blank" rel="noopener noreferrer"
+                                        class="card-action-icon" aria-label="GitHub Repository"><i
+                                            data-lucide="github"></i></a>
+                                </div>
+                            </div>
+                            <button class="close-exploded-btn" aria-label="Close Details">
+                                <i data-lucide="x"></i>
+                            </button>
                         </div>
-                        <div class="project-card-content">
-                            <span class="project-card-tag">Generative AI / RAG</span>
-                            <h3 class="project-card-title">Ollama AI Student Support Chatbot</h3>
-                            <p class="project-card-excerpt">
-                                Localized LLM chatbot providing responsive speech-to-text, text-to-speech support for
-                                students suffering from academic stress.
-                            </p>
-                            <div class="project-card-tech">
-                                <span>Python</span>
-                                <span>Ollama</span>
-                                <span>SpeechRecognition</span>
-                                <span>pyttsx3</span>
-                                <span>Pandas</span>
+
+                        <!-- Project 2 -->
+                        <div class="project-stack-card" data-project-id="project-ollama" data-status="behind-1">
+                            <div class="project-card-visual">
+                                <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800"
+                                    alt="Ollama AI Chatbot Thumbnail">
                             </div>
-                            <div class="project-card-links">
-                                <button class="card-action-btn primary-action">Read Details</button>
-                                <a href="https://github.com/Swethanjali151" target="_blank" rel="noopener noreferrer"
-                                    class="card-action-icon" aria-label="GitHub Repository"><i
-                                        data-lucide="github"></i></a>
+                            <div class="project-card-info">
+                                <span class="project-card-tag">Generative AI / RAG</span>
+                                <h3 class="project-card-title">Ollama AI Student Support Chatbot</h3>
+                                <p class="project-card-excerpt">
+                                    Localized LLM chatbot providing responsive speech-to-text, text-to-speech support for
+                                    students suffering from academic stress.
+                                </p>
+                                
+                                <div class="project-card-detailed-specs">
+                                    <h4 class="details-subtitle">Key Implementation Highlights</h4>
+                                    <ul class="details-bullets">
+                                        <li><strong>Local Inference Optimization</strong>: Hosted and integrated Ollama models locally, avoiding latency and dependency on third-party remote APIs.</li>
+                                        <li><strong>Multi-modal Speech Pipelines</strong>: Engineered responsive text-to-speech and speech-to-text systems via SpeechRecognition and pyttsx3/gTTS libraries, allowing interactive hands-free operations.</li>
+                                        <li><strong>NLP Preprocessing</strong>: Streamlined raw inputs through Lemmatization and tokenization cleaning pipelines to ensure high contextual consistency.</li>
+                                        <li><strong>Contextual Prompt Engineering</strong>: Implemented strict semantic directives restricting responses to student therapy bounds, including immediate escalation recommendations for critical indicators.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="project-card-tech">
+                                    <span>Python</span>
+                                    <span>Ollama</span>
+                                    <span>SpeechRecognition</span>
+                                    <span>pyttsx3</span>
+                                    <span>Pandas</span>
+                                </div>
+                                <div class="project-card-links">
+                                    <button class="card-action-btn primary-action">
+                                        <span class="btn-text">Read Details</span>
+                                        <i data-lucide="arrow-right" class="btn-icon"></i>
+                                    </button>
+                                    <a href="https://github.com/Swethanjali151" target="_blank" rel="noopener noreferrer" class="primary-btn github-btn">
+                                        <i data-lucide="github"></i>
+                                        <span>View Source Code</span>
+                                    </a>
+                                    <a href="https://github.com/Swethanjali151" target="_blank" rel="noopener noreferrer"
+                                        class="card-action-icon" aria-label="GitHub Repository"><i
+                                            data-lucide="github"></i></a>
+                                </div>
                             </div>
+                            <button class="close-exploded-btn" aria-label="Close Details">
+                                <i data-lucide="x"></i>
+                            </button>
                         </div>
+
+                        <!-- Project 3 -->
+                        <div class="project-stack-card" data-project-id="project-instability" data-status="behind-2">
+                            <div class="project-card-visual">
+                                <img src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800"
+                                    alt="Detection of Psychological Instability using Machine Learning Thumbnail">
+                            </div>
+                            <div class="project-card-info">
+                                <span class="project-card-tag">Machine Learning / NLP</span>
+                                <h3 class="project-card-title">Detection of Psychological Instability using Machine Learning</h3>
+                                <p class="project-card-excerpt">
+                                    Robust statistical classification engine predicting risk factors based on
+                                    high-dimensional behavioral datasets.
+                                </p>
+
+                                <div class="project-card-detailed-specs">
+                                    <h4 class="details-subtitle">Key Implementation Highlights</h4>
+                                    <ul class="details-bullets">
+                                        <li><strong>Model Benchmark Matrix</strong>: Integrated, tuned, and compared a series of classification architectures including Logistic Regression, Support Vector Machines (SVM), Decision Trees, K-Nearest Neighbors (KNN), and XGBoost.</li>
+                                        <li><strong>Rigorous Pipeline Preprocessing</strong>: Created automated standard scaling, category encoding, and null imputation components using Scikit-Learn pipelines.</li>
+                                        <li><strong>Over-fitting Elimination</strong>: Conducted Stratified K-Fold cross-validation, hyperparameter tuning via Grid Search, and checked ROC-AUC curves to achieve a highly generalized high-accuracy output.</li>
+                                        <li><strong>Data Exploration</strong>: Conducted deep correlation analysis, data profiling, and statistical visualization utilizing Matplotlib and Seaborn.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="project-card-tech">
+                                    <span>Python</span>
+                                    <span>Scikit-Learn</span>
+                                    <span>XGBoost</span>
+                                    <span>Pandas</span>
+                                    <span>NumPy</span>
+                                </div>
+                                <div class="project-card-links">
+                                    <button class="card-action-btn primary-action">
+                                        <span class="btn-text">Read Details</span>
+                                        <i data-lucide="arrow-right" class="btn-icon"></i>
+                                    </button>
+                                    <a href="https://github.com/Swethanjali151" target="_blank" rel="noopener noreferrer" class="primary-btn github-btn">
+                                        <i data-lucide="github"></i>
+                                        <span>View Source Code</span>
+                                    </a>
+                                    <a href="https://github.com/Swethanjali151"
+                                        target="_blank" rel="noopener noreferrer" class="card-action-icon"
+                                        aria-label="GitHub Repository"><i data-lucide="github"></i></a>
+                                </div>
+                            </div>
+                            <button class="close-exploded-btn" aria-label="Close Details">
+                                <i data-lucide="x"></i>
+                            </button>
+                        </div>
+
+                        <!-- Project 4 -->
+                        <div class="project-stack-card" data-project-id="project-chatbot" data-status="behind-3">
+                            <div class="project-card-visual">
+                                <img src="assets/project_chatbot.png"
+                                    alt="Customized Nature-Themed AI ChatBot Thumbnail">
+                                <!-- Butterfly Container -->
+                                <div class="butterfly-container">
+                                    <div class="butterfly b1">
+                                        <div class="wing left"></div>
+                                        <div class="wing right"></div>
+                                    </div>
+                                    <div class="butterfly b2">
+                                        <div class="wing left"></div>
+                                        <div class="wing right"></div>
+                                    </div>
+                                    <div class="butterfly b3">
+                                        <div class="wing left"></div>
+                                        <div class="wing right"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-card-info">
+                                <span class="project-card-tag">Generative AI / LLM</span>
+                                <h3 class="project-card-title">Customized Nature-Themed AI ChatBot</h3>
+                                <p class="project-card-excerpt">
+                                    Interactive, custom nature-themed AI ChatBot blending advanced Generative AI with real-time LangSmith tracing.
+                                </p>
+
+                                <div class="project-card-detailed-specs">
+                                    <h4 class="details-subtitle">Key Implementation Highlights</h4>
+                                    <ul class="details-bullets">
+                                        <li><strong>LLM Orchestration</strong>: Constructed complex retrieval and response logic powered by LangChain, utilizing <code>ChatPromptTemplate</code> for structured prompt engineering and <code>StrOutputParser</code> to cleanly handle model outputs.</li>
+                                        <li><strong>Gemini Core Integration</strong>: Connected Google's Gemini 2.5 Flash model via <code>ChatGoogleGenerativeAI</code> for low-latency, high-accuracy multi-turn dialogue.</li>
+                                        <li><strong>Observability &amp; LLMOps</strong>: Configured end-to-end tracing and performance debugging through LangSmith, ensuring reliable monitoring of prompt chains and tokens.</li>
+                                        <li><strong>Streamlit Interface</strong>: Designed a responsive, nature-themed custom UI inside Streamlit to deliver an engaging, immersive user experience.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="project-card-tech">
+                                    <span>Python</span>
+                                    <span>LangChain</span>
+                                    <span>Google Gemini</span>
+                                    <span>Streamlit</span>
+                                    <span>LangSmith</span>
+                                </div>
+                                <div class="project-card-links">
+                                    <button class="card-action-btn primary-action">
+                                        <span class="btn-text">Read Details</span>
+                                        <i data-lucide="arrow-right" class="btn-icon"></i>
+                                    </button>
+                                    <a href="https://github.com/Swethanjali151" target="_blank" rel="noopener noreferrer" class="primary-btn github-btn">
+                                        <i data-lucide="github"></i>
+                                        <span>View Source Code</span>
+                                    </a>
+                                    <a href="https://github.com/Swethanjali151" target="_blank" rel="noopener noreferrer"
+                                        class="card-action-icon" aria-label="GitHub Repository"><i
+                                            data-lucide="github"></i></a>
+                                </div>
+                            </div>
+                            <button class="close-exploded-btn" aria-label="Close Details">
+                                <i data-lucide="x"></i>
+                            </button>
+                        </div>
+
+                        <!-- Project 5 -->
+                        <div class="project-stack-card" data-project-id="project-eda-insights" data-status="hidden">
+                            <div class="project-card-visual">
+                                <img src="assets/project_eda.png"
+                                    alt="AI-Powered Exploratory Data Analysis with LLM-Based Insights Thumbnail">
+                            </div>
+                            <div class="project-card-info">
+                                <span class="project-card-tag">Data Science / EDA</span>
+                                <h3 class="project-card-title">AI-Powered EDA with LLM Insights</h3>
+                                <p class="project-card-excerpt">
+                                    Intelligent EDA application that profiles datasets, plots statistical graphs, and leverages local LLMs for natural language interpretations.
+                                </p>
+
+                                <div class="project-card-detailed-specs">
+                                    <h4 class="details-subtitle">Key Implementation Highlights</h4>
+                                    <ul class="details-bullets">
+                                        <li><strong>Automated Data Profiling</strong>: Engineered robust pipelines utilizing Pandas to perform descriptive statistical analysis, clean missing values, and structure raw data inputs.</li>
+                                        <li><strong>Statistical Visualizations</strong>: Developed dynamic Seaborn and Matplotlib visualization pipelines to plot distribution patterns, correlation heatmaps, and anomalies.</li>
+                                        <li><strong>Local Explainable AI</strong>: Integrated Ollama local LLMs to analyze statistical outputs and write structured, human-readable data interpretations and decision-making reports.</li>
+                                        <li><strong>Gradio Interactive App</strong>: Designed and deployed a user-friendly Gradio web interface, permitting seamless drag-and-drop CSV dataset uploads and real-time visualization rendering.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="project-card-tech">
+                                    <span>Python</span>
+                                    <span>Pandas</span>
+                                    <span>Matplotlib</span>
+                                    <span>Seaborn</span>
+                                    <span>Ollama</span>
+                                    <span>Gradio</span>
+                                </div>
+                                <div class="project-card-links">
+                                    <button class="card-action-btn primary-action">
+                                        <span class="btn-text">Read Details</span>
+                                        <i data-lucide="arrow-right" class="btn-icon"></i>
+                                    </button>
+                                    <a href="https://github.com/Swethanjali151" target="_blank" rel="noopener noreferrer" class="primary-btn github-btn">
+                                        <i data-lucide="github"></i>
+                                        <span>View Source Code</span>
+                                    </a>
+                                    <a href="https://github.com/Swethanjali151" target="_blank" rel="noopener noreferrer"
+                                        class="card-action-icon" aria-label="GitHub Repository"><i
+                                            data-lucide="github"></i></a>
+                                </div>
+                            </div>
+                            <button class="close-exploded-btn" aria-label="Close Details">
+                                <i data-lucide="x"></i>
+                            </button>
+                        </div>
+
                     </div>
 
-                    <!-- Project 2 -->
-                    <div class="project-card" data-project-id="project-instability">
-                        <div class="project-card-image">
-                            <img src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800"
-                                alt="Detection of Psychological Instability using Machine Learning Thumbnail">
-                            <div class="project-overlay">
-                                <span class="view-details-lbl">Explore Architecture <i data-lucide="zoom-in"></i></span>
-                            </div>
+                    <!-- Stack Controls -->
+                    <div class="stack-controls">
+                        <button class="stack-control-btn prev" id="stack-prev-btn" aria-label="Previous Project">
+                            <i data-lucide="chevron-left"></i>
+                        </button>
+                        <div class="stack-dots" id="stack-dots-container">
+                            <!-- Dots generated dynamically via JS -->
                         </div>
-                        <div class="project-card-content">
-                            <span class="project-card-tag">Machine Learning / NLP</span>
-                            <h3 class="project-card-title">Detection of Psychological Instability using Machine Learning
-                            </h3>
-                            <p class="project-card-excerpt">
-                                Robust statistical classification engine predicting risk factors based on
-                                high-dimensional behavioral datasets.
-                            </p>
-                            <div class="project-card-tech">
-                                <span>Python</span>
-                                <span>Scikit-Learn</span>
-                                <span>XGBoost</span>
-                                <span>Pandas</span>
-                                <span>NumPy</span>
-                            </div>
-                            <div class="project-card-links">
-                                <button class="card-action-btn primary-action">Read Details</button>
-                                <a href="https://github.com/Swethanjali151/Detection-OF-Psychological-Instability-Project-using-Machine-Learning.git"
-                                    target="_blank" rel="noopener noreferrer" class="card-action-icon"
-                                    aria-label="GitHub Repository"><i data-lucide="github"></i></a>
-                            </div>
-                        </div>
+                        <button class="stack-control-btn next" id="stack-next-btn" aria-label="Next Project">
+                            <i data-lucide="chevron-right"></i>
+                        </button>
                     </div>
 
+                    <!-- Exploded Mode Navigation Buttons -->
+                    <button class="exploded-nav-btn prev" id="exploded-prev-btn" aria-label="Previous Project">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    <button class="exploded-nav-btn next" id="exploded-next-btn" aria-label="Next Project">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
                 </div>
             </div>
         </section>
-
-        <!-- Project Modals Container (Hidden by default) -->
-        <div class="modal-overlay" id="project-modal">
-            <div class="modal-card">
-                <button class="modal-close-btn" id="modal-close" aria-label="Close Modal"><i
-                        data-lucide="x"></i></button>
-                <div class="modal-body-content" id="modal-body-content">
-                    <!-- Dynamic content injected by JavaScript -->
-                </div>
-            </div>
-        </div>
 
         <!-- Experience & Education Section -->
         <section class="experience-section" id="experience">
