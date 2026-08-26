@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(updateCursorGlow);
 
     // Hover state links selector
-    const interactiveElements = document.querySelectorAll("a, button, .project-stack-card, .tab-btn, #hamburger-btn, .reset-form-btn");
+    const interactiveElements = document.querySelectorAll("a, button, .project-stack-card, .tab-btn, #hamburger-btn, .reset-form-btn, .cert-card");
     interactiveElements.forEach(el => {
         el.addEventListener("mouseenter", () => document.body.classList.add("cursor-hover"));
         el.addEventListener("mouseleave", () => document.body.classList.remove("cursor-hover"));
@@ -1795,3 +1795,35 @@ document.addEventListener("DOMContentLoaded", () => {
         yearElement.textContent = new Date().getFullYear();
     }
 });
+
+/* ==========================================================================
+   CERTIFICATE LIGHTBOX MODAL HANDLERS
+   ========================================================================== */
+window.openCertModal = function(imgSrc, title) {
+    const modal = document.getElementById("cert-modal");
+    const modalImg = document.getElementById("cert-modal-img");
+    const modalTitle = document.getElementById("cert-modal-title");
+    
+    if (modal && modalImg && modalTitle) {
+        modalImg.src = imgSrc;
+        modalTitle.textContent = title;
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+    }
+};
+
+window.closeCertModal = function(event) {
+    const modal = document.getElementById("cert-modal");
+    if (modal) {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
+    }
+};
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        window.closeCertModal();
+    }
+});
+
